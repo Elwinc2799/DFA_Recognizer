@@ -13,8 +13,11 @@ def index():
         if uploaded_file:
             text = uploaded_file.read().decode('utf-8')
 
-            # Split patterns to search by comma
-            patterns = request.form['patterns'].split(',')
+            # Split patterns to search by comma, if no pattern input used default list
+            if request.form['patterns'] == "":
+                patterns = ["David", "Sarah", "Ethan", "Vanessa", "Carl", "Mia", "Josh", "Emily", "Leo", "Isabella", "Benjamin", "Grace", "Jacob", "Sophia", "Liam"]
+            else:
+                patterns = request.form['patterns'].split(',')
 
             # Process the text and patterns using the DFA_Recognizer functions
             results = DFA_Recognizer.process_text(text, patterns)

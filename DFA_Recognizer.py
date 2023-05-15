@@ -4,16 +4,21 @@ from IPython.display import display, HTML
 # Output formatting
 def bold_word_with_colour(word, code, i):
     css_colors = [
-        ('bright_red', '#FF4D4D'),
-        ('bright_magenta', '#FF4DA6'),
-        ('bright_cyan', '#4DFFFF'),
+        ('teal', '#008080'),
+        ('navy', '#000080'),
+        ('olive', '#808000'),
         ('blue', '#0000FF'),
         ('green', '#00FF00'),
         ('magenta', '#FF00FF'),
         ('bright_black', '#666666'),
         ('yellow', '#FFFF00'),
         ('red', '#FF0000'),
-        ('cyan', '#00FFFF'),
+        ('orange', '#FFA500'),
+        ('purple', '#800080'),
+        ('pink', '#FFC0CB'),
+        ('brown', '#A52A2A'),
+        ('gold', '#FFD700'),
+        ('maroon', '#800000'),
     ]
 
     font_size = 0
