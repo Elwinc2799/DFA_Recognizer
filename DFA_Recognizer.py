@@ -70,9 +70,6 @@ class State:
         self.transitions[char] = state
 
 
-
-
-
 class DFA:
     def __init__(self, patterns):
         self.start_state = State()
@@ -168,6 +165,15 @@ def show_DFA_output(text, dfa, matches, patterns_dict):
     return result_str
 
 
+# The core function between front end and the DFA Recognizer, accept text (sample text) and patterns (patterns to be
+# searched) from user Return output to front end
+def process_text(text, patterns):
+    patterns_dict = {patterns[i]: i for i in range(len(patterns))}
+    dfa = DFA(patterns)
+    matches = dfa.search(text, patterns)
+    results = show_DFA_output(text, dfa, matches, patterns_dict)
+    return results
+
 # def main():
 #     #============================ Sample Text ===================================#
 #
@@ -180,11 +186,6 @@ def show_DFA_output(text, dfa, matches, patterns_dict):
 #
 #     # # Demo text from a user input
 #     # text = str(input())
-#
-#     # # Demo text from an initialized string
-#     # text = ("Malaysia Jasonly Chee Meng is a federal Jason constitutional John monarchy Jas Ahmad located in Ahmad Southeast Asia."
-#     #         "Dr Tan and Mr. Lim are good Southeast Asia friends, but Dr Tan knows Asia Ahmad better than Mr. Lim."
-#     #         "Jason, Jas, Jasonly and Jassica Asia are best friends.")
 #
 #     #============================ Patterns to Search ============================#
 #
@@ -209,12 +210,3 @@ def show_DFA_output(text, dfa, matches, patterns_dict):
 #     #============================ Show DFA Search Results =======================#
 #
 #     show_DFA_output(text, dfa, matches, patterns_dict)
-
-# The core function between front end and the DFA Recognizer, accept text (sample text) and patterns (patterns to be
-# searched) from user Return output to front end
-def process_text(text, patterns):
-    patterns_dict = {patterns[i]: i for i in range(len(patterns))}
-    dfa = DFA(patterns)
-    matches = dfa.search(text, patterns)
-    results = show_DFA_output(text, dfa, matches, patterns_dict)
-    return results
